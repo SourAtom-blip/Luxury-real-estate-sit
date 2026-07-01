@@ -143,6 +143,7 @@ export default function HeroVideo() {
         <video
           ref={videoRef}
           src={heroVideo}
+          poster="/poster.jpg"
           muted
           playsInline
           preload="auto"
