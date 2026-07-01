@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useVideoScrub } from '../hooks/useScrollTrigger'
-import heroVideo from '../assets/hero_scrub.mp4'
+
+const heroVideo = '/hero_scrub.mp4'
 
 gsap.registerPlugin(ScrollTrigger)
 
