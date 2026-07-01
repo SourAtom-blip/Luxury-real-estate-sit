@@ -1,13 +1,18 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import imgKitchen  from '../assets/kitchen.png'
+import imgBedroom  from '../assets/bedroom.png'
+import imgPool     from '../assets/pool.png'
+import imgLibrary  from '../assets/library.png'
+import imgSpa      from '../assets/spa.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const TILES = [
   {
     id: 'kitchen',
-    src: '/assets/kitchen.png',
+    src: imgKitchen,
     title: "Chef's Kitchen",
     sub: "Gaggenau appliance suite, quartzite island, butler's pantry",
     class: 'bento-1',
@@ -15,7 +20,7 @@ const TILES = [
   },
   {
     id: 'bedroom',
-    src: '/assets/bedroom.png',
+    src: imgBedroom,
     title: 'Master Suite',
     sub: 'Private terrace, bespoke walk-in, soaking bath',
     class: 'bento-2',
@@ -23,7 +28,7 @@ const TILES = [
   },
   {
     id: 'pool',
-    src: '/assets/pool.png',
+    src: imgPool,
     title: 'Infinity Pool',
     sub: '25-metre heated, ocean sight-line',
     class: 'bento-3',
@@ -31,7 +36,7 @@ const TILES = [
   },
   {
     id: 'library',
-    src: '/assets/library.png',
+    src: imgLibrary,
     title: 'Private Library',
     sub: 'Reclaimed oak panelling, bespoke joinery',
     class: 'bento-4',
@@ -39,7 +44,7 @@ const TILES = [
   },
   {
     id: 'spa',
-    src: '/assets/spa.png',
+    src: imgSpa,
     title: 'Wellness & Spa',
     sub: 'Hammam, sauna, cold plunge, treatment room',
     class: 'bento-5',
