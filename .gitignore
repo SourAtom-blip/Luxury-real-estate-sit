@@ -4,3 +4,7 @@ dist/
 .env.local
 .DS_Store
 *.log
+assets/Gemini_*
+assets/*.mp4
+src/assets/*.png
+src/assets/hero_video.mp4
