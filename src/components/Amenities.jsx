@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import imgKitchen  from '../assets/kitchen.png'
-import imgBedroom  from '../assets/bedroom.png'
-import imgPool     from '../assets/pool.png'
-import imgLibrary  from '../assets/library.png'
-import imgSpa      from '../assets/spa.png'
+import imgKitchen  from '../assets/kitchen.webp'
+import imgBedroom  from '../assets/bedroom.webp'
+import imgPool     from '../assets/pool.webp'
+import imgLibrary  from '../assets/library.webp'
+import imgSpa      from '../assets/spa.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
