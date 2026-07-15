@@ -1,29 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-const HOME_SECTIONS = [
-  { label: 'Overview',    href: '#overview' },
-  { label: 'Walkthrough', href: '#walkthrough' },
-  { label: 'Specs',       href: '#specs' },
-  { label: 'Amenities',   href: '#amenities' },
-  { label: 'Location',    href: '#location' },
-]
-
-const INNER_LINKS = [
-  { label: 'Property',  to: '/property' },
-  { label: 'Gallery',   to: '/gallery' },
-  { label: 'About',     to: '/about' },
-  { label: 'Contact',   to: '/contact' },
+const NAV_LINKS = [
+  { label: 'Home',     to: '/' },
+  { label: 'Property', to: '/property' },
+  { label: 'Gallery',  to: '/gallery' },
+  { label: 'About',    to: '/about' },
+  { label: 'Contact',  to: '/contact' },
 ]
 
 export default function Navbar({ inner = false }) {
   const navRef  = useRef(null)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const navigate = useNavigate()
-  const isHome = location.pathname === '/'
-
   useEffect(() => {
     gsap.fromTo(
       navRef.current,
@@ -34,15 +24,6 @@ export default function Navbar({ inner = false }) {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const handleSection = (e, href) => {
-    e.preventDefault()
-    if (isHome) {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/' + href)
-    }
-  }
 
   return (
     <header
@@ -63,32 +44,20 @@ export default function Navbar({ inner = false }) {
 
         {/* Center nav */}
         <nav className="hidden lg:flex items-center gap-8">
-          {isHome
-            ? HOME_SECTIONS.map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  onClick={(e) => handleSection(e, href)}
-                  className="text-obsidian-parchment hover-bronze text-xs font-body opacity-80 hover:opacity-100"
-                  style={{ letterSpacing: '0.18em', textTransform: 'uppercase' }}
-                >
-                  {label}
-                </a>
-              ))
-            : INNER_LINKS.map(({ label, to }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  className={`text-xs font-body hover-bronze ${
-                    location.pathname === to
-                      ? 'text-obsidian-bronze'
-                      : 'text-obsidian-parchment opacity-80 hover:opacity-100'
-                  }`}
-                  style={{ letterSpacing: '0.18em', textTransform: 'uppercase' }}
-                >
-                  {label}
-                </Link>
-              ))}
+          {NAV_LINKS.map(({ label, to }) => (
+            <Link
+              key={to}
+              to={to}
+              className={`text-xs font-body ${
+                location.pathname === to
+                  ? 'text-obsidian-bronze'
+                  : 'text-obsidian-parchment opacity-80 hover:opacity-100'
+              }`}
+              style={{ letterSpacing: '0.18em', textTransform: 'uppercase' }}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
         {/* CTA */}
